@@ -1,0 +1,17 @@
+name: Deployment
+
+on:
+  push:
+    tags:
+      - 'v*'
+      - '[0-9]*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy-docc:
+    uses: BinaryBirds/github-workflows/.github/workflows/docc_deploy.yml@0.2.0
